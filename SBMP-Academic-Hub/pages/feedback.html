@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Feedback - SBMP Academic Hub</title>
+<link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/themes.css"><link rel="stylesheet" href="../css/responsive.css"></head><body>
+<div id="site-header"></div><main><div class="container">
+<div class="breadcrumbs"><a href="../index.html">Home</a><span class="sep">/</span><span>Feedback</span></div>
+<h1>Share Your Feedback</h1>
+<p class="lede">Your feedback helps shape the academic experience. All fields marked with <span style="color:var(--danger)">*</span> are required.</p>
+<div id="feedback-success" class="alert alert-success" style="display:none;max-width:720px;">Thank you &mdash; your feedback has been recorded locally in this browser.</div>
+<form id="feedback-form" class="card" style="max-width:720px;margin-top:20px;">
+ <div class="field"><label for="fb-name">Full Name <span style="color:var(--danger)">*</span></label><input id="fb-name" name="name" required maxlength="80"></div>
+ <div class="field"><label for="fb-roll">Roll Number <span style="color:var(--danger)">*</span></label><input id="fb-roll" name="roll" required maxlength="10" placeholder="e.g. B001"></div>
+ <div class="grid grid-2">
+  <div class="field"><label for="fb-category">Category <span style="color:var(--danger)">*</span></label>
+   <select id="fb-category" name="category" required><option value="">Select...</option><option>Academics</option><option>Timetable</option><option>Faculty</option><option>Facilities</option><option>Portal</option><option>Other</option></select>
+  </div>
+  <div class="field"><label for="fb-type">Feedback Type <span style="color:var(--danger)">*</span></label>
+   <select id="fb-type" name="type" required><option value="">Select...</option><option>Suggestion</option><option>Compliment</option><option>Concern</option><option>Bug Report</option></select>
+  </div>
+ </div>
+ <div class="field" id="rating-field"><label>Overall Rating</label>
+  <div class="rating">
+   <input type="radio" id="r5" name="rating" value="5"><label for="r5">&#9733;</label>
+   <input type="radio" id="r4" name="rating" value="4"><label for="r4">&#9733;</label>
+   <input type="radio" id="r3" name="rating" value="3"><label for="r3">&#9733;</label>
+   <input type="radio" id="r2" name="rating" value="2"><label for="r2">&#9733;</label>
+   <input type="radio" id="r1" name="rating" value="1"><label for="r1">&#9733;</label>
+  </div>
+ </div>
+ <div class="field"><label for="fb-message">Message <span style="color:var(--danger)">*</span></label><textarea id="fb-message" name="message" rows="5" required maxlength="1000"></textarea></div>
+ <div style="display:flex;gap:10px;flex-wrap:wrap;">
+  <button type="submit" class="btn btn-primary">Submit Feedback</button>
+  <button type="reset" class="btn btn-secondary">Clear</button>
+ </div>
+</form>
+</div></main><div id="site-footer"></div>
+<script type="module">
+import './../js/main.js';
+import { initFeedback } from './../js/feedback.js';
+initFeedback();
+</script></body></html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Students - SBMP Academic Hub</title>
+<link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/themes.css"><link rel="stylesheet" href="../css/responsive.css"></head><body>
+<div id="site-header"></div><main><div class="container">
+<div class="breadcrumbs"><a href="../index.html">Home</a><span class="sep">/</span><span>Students</span></div>
+<h1>Student Directory</h1>
+<p class="lede">Computer Engineering · Semester I · Division B &mdash; <strong id="student-count">0</strong> students across batches S1 and S2.</p>
+<div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:20px 0;">
+ <div class="tt-tabs" role="tablist">
+  <button class="tt-tab student-filter active" data-filter="all">All</button>
+  <button class="tt-tab student-filter" data-filter="S1">Batch S1</button>
+  <button class="tt-tab student-filter" data-filter="S2">Batch S2</button>
+ </div>
+ <input id="student-search" placeholder="Search by name, roll, or SAP..." style="margin-left:auto;min-width:260px;padding:9px 12px;border:1px solid var(--border-strong);border-radius:var(--radius);background:var(--surface);color:var(--text);font-family:inherit;">
+</div>
+<div class="table-wrap"><table class="data">
+<thead><tr><th>Roll</th><th>SAP</th><th>Name</th><th>Div</th><th>Batch</th><th>Programme</th></tr></thead>
+<tbody id="students-list"></tbody></table></div>
+<div id="students-root" style="display:none;"></div>
+</div></main><div id="site-footer"></div>
+<script type="module">
+import './../js/main.js';
+import { initStudents } from './../js/students.js';
+initStudents();
+</script></body></html>

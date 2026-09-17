@@ -1,0 +1,17 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Task Planner - SBMP Academic Hub</title>
+<link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/themes.css"><link rel="stylesheet" href="../css/responsive.css"></head><body>
+<div id="site-header"></div><main><div class="container">
+<div class="breadcrumbs"><a href="../index.html">Home</a><span class="sep">/</span><span>Task Planner</span></div>
+<h1>All-Subject Task Planner</h1>
+<p class="lede">Add, edit, complete, and filter tasks across all Semester I subjects. Tasks are saved locally in your browser and persist across sessions.</p>
+<div class="planner-toolbar" style="margin-top:20px;"><div class="planner-filters" id="planner-filters"></div></div>
+<form class="task-form" id="task-form"></form>
+<div class="task-list" id="task-list" style="margin-top:20px;"></div>
+<div id="planner-root" style="display:none;"></div>
+</div></main><div id="site-footer"></div>
+<script type="module">
+import './../js/main.js';
+import { initPlanner } from './../js/planner.js';
+initPlanner();
+</script></body></html>

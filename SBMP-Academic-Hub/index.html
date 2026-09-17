@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SBMP Academic Hub — Computer Engineering · Semester I</title>
+<meta name="description" content="Academic portal for Computer Engineering Semester I, Division B, SBMP — AY 2026-2027.">
+<link rel="icon" href="assets/logos/sbmp-logo.jpg">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/themes.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/print.css">
+</head>
+<body>
+<div id="site-header"></div>
+
+<main>
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-eyebrow">Academic Year 2026–2027 · Semester I · Division B</span>
+        <h1>Welcome to the<br>Computer Engineering<br>Academic Hub.</h1>
+        <p class="lede">A dedicated academic workspace for First-Year Computer Engineering students at Shri Bhagubhai Mafatlal Polytechnic &amp; College of Engineering — consolidated timetables, subject-wise syllabi, faculty directory, notices, student directory, and a persistent task planner.</p>
+        <div class="hero-actions">
+          <a href="pages/timetable.html" class="btn btn-primary">View Timetable <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+          <a href="pages/subjects.html" class="btn btn-secondary">Browse Subjects</a>
+        </div>
+      </div>
+      <div>
+        <div class="clock-card">
+          <div class="clock-label">Live · Local Time</div>
+          <div class="clock-time" id="clock-time">--:--:--</div>
+          <div class="clock-date" id="clock-date">—</div>
+          <div class="clock-academic" id="clock-period">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container" style="margin-top:40px;">
+  <div class="section-head"><h2>Quick Access</h2></div>
+  <div class="quick-tiles">
+    <a class="quick-tile" href="pages/timetable.html">
+      <div class="qt-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+      <div><div class="qt-title">Timetable</div><div class="qt-desc">Division B · S1 · S2</div></div>
+    </a>
+    <a class="quick-tile" href="pages/subjects.html">
+      <div class="qt-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
+      <div><div class="qt-title">Subjects</div><div class="qt-desc">7 subjects · full detail</div></div>
+    </a>
+    <a class="quick-tile" href="pages/portion.html">
+      <div class="qt-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12h6M9 16h6M9 8h6M5 3h14v18l-7-4-7 4z"/></svg></div>
+      <div><div class="qt-title">Portion</div><div class="qt-desc">Unit-wise syllabus</div></div>
+    </a>
+    <a class="quick-tile" href="pages/planner.html">
+      <div class="qt-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+      <div><div class="qt-title">Task Planner</div><div class="qt-desc">Add · edit · track tasks</div></div>
+    </a>
+    <a class="quick-tile" href="pages/faculty.html">
+      <div class="qt-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+      <div><div class="qt-title">Faculty</div><div class="qt-desc">Department directory</div></div>
+    </a>
+    <a class="quick-tile" href="pages/students.html">
+      <div class="qt-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg></div>
+      <div><div class="qt-title">Students</div><div class="qt-desc">Division B · B001–B063</div></div>
+    </a>
+    <a class="quick-tile" href="pages/notices.html">
+      <div class="qt-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></div>
+      <div><div class="qt-title">Notices</div><div class="qt-desc">Academic calendar</div></div>
+    </a>
+    <a class="quick-tile" href="pages/feedback.html">
+      <div class="qt-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+      <div><div class="qt-title">Feedback</div><div class="qt-desc">Share your input</div></div>
+    </a>
+  </div>
+</section>
+
+<section class="container" style="margin-top:40px;">
+  <div class="section-head"><h2>Semester I · Division B</h2></div>
+  <div class="grid grid-4">
+    <div class="card"><div class="text-mute" style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;">Programme</div><div style="font-weight:600;">Diploma in Computer Engineering</div></div>
+    <div class="card"><div class="text-mute" style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;">Semester</div><div style="font-weight:600;">I / 1B</div></div>
+    <div class="card"><div class="text-mute" style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;">Batches</div><div style="font-weight:600;">S1 &amp; S2</div></div>
+    <div class="card"><div class="text-mute" style="font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;">Academic Year</div><div style="font-weight:600;">2026–2027</div></div>
+  </div>
+</section>
+
+<section class="container" style="margin-top:40px;">
+  <div class="section-head"><h2>Recent Notices</h2><a class="link" href="pages/notices.html">View all →</a></div>
+  <div class="notice-list" id="home-notices"></div>
+</section>
+
+<section class="container" style="margin-top:40px;">
+  <div class="section-head"><h2>Upcoming Academic Events</h2></div>
+  <div class="calendar-strip" id="calendar-strip"></div>
+</section>
+
+<section class="container" style="margin-top:40px;">
+  <div class="section-head"><h2>Semester I Subjects</h2><a class="link" href="pages/subjects.html">Full directory →</a></div>
+  <div class="grid grid-3" id="subjects-preview"></div>
+</section>
+</main>
+
+<div id="site-footer"></div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

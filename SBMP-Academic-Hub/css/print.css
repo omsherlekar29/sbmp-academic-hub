@@ -1,0 +1,9 @@
+@media print{
+ body{background:#fff;color:#000;font-size:12px}
+ .site-header,.site-footer,.no-print,.menu-toggle,.header-utility,.tt-controls,.planner-toolbar,.breadcrumbs{display:none !important}
+ .container{max-width:100%;padding:0}
+ .card,.tt-grid,.table-wrap{box-shadow:none;border-color:#999}
+ a{color:#000;text-decoration:none}
+ .tt-grid{grid-template-columns:80px repeat(6,1fr);gap:3px}
+ .tt-head{background:#ddd !important;color:#000 !important}
+}

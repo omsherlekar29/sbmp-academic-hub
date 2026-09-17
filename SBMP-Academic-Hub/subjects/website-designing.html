@@ -1,0 +1,13 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Website Designing - SBMP Academic Hub</title>
+<link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/themes.css"><link rel="stylesheet" href="../css/responsive.css"></head><body>
+<div id="site-header"></div>
+<main id="subject-detail"></main>
+<div id="site-footer"></div>
+<script type="module">
+import './../js/main.js';
+import { renderSubjectDetail } from './../js/subjects.js';
+import { initSubjectPlanner } from './../js/planner.js';
+renderSubjectDetail('WSD260802','#subject-detail');
+setTimeout(()=>initSubjectPlanner('WSD260802'),0);
+</script></body></html>

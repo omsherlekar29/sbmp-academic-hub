@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Portion - SBMP Academic Hub</title>
+<link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/themes.css"><link rel="stylesheet" href="../css/responsive.css"></head><body>
+<div id="site-header"></div><main><div class="container">
+<div class="breadcrumbs"><a href="../index.html">Home</a><span class="sep">/</span><span>Portion</span></div>
+<h1>Portion / Syllabus</h1>
+<p class="lede">Unit-wise syllabus for every Semester I subject &mdash; organised for quick scanning and revision planning.</p>
+<div style="margin:24px 0;max-width:480px;"><select id="portion-subject" style="width:100%;padding:12px 14px;border:1px solid var(--border-strong);border-radius:var(--radius);background:var(--surface);color:var(--text);font-family:inherit;font-size:.95rem;"></select></div>
+<div id="portion-content"></div>
+</div></main><div id="site-footer"></div>
+<script type="module">
+import './../js/main.js';
+import { SUBJECTS, SUBJECT_ORDER } from '../data/subjects.js';
+const sel=document.getElementById('portion-subject');
+sel.innerHTML=SUBJECT_ORDER.map(c=>`<option value="${c}">${c} &mdash; ${SUBJECTS[c].name}</option>`).join('');
+const host=document.getElementById('portion-content');
+function render(code){
+ const s=SUBJECTS[code];
+ host.innerHTML=`<h2 style="margin-top:20px;">${s.name} <span class="badge badge-primary">${s.code}</span></h2>
+ <p class="text-mute">${s.category} · ${s.credits} credits · ${s.duration}</p>
+ ${s.units.map(u=>`<details class="unit" ${u.no===1?'open':''}><summary><span class="unit-no">${u.no}</span><span>${u.title}</span>${u.hours?`<span class="hours">${u.hours} hrs</span>`:''}</summary><div class="unit-body"><ul>${u.topics.map(t=>`<li>${t}</li>`).join('')}</ul></div></details>`).join('')}`;
+}
+sel.addEventListener('change',()=>render(sel.value));
+render(SUBJECT_ORDER[0]);
+</script></body></html>

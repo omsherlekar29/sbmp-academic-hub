@@ -1,0 +1,21 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Faculty - SBMP Academic Hub</title>
+<link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/themes.css"><link rel="stylesheet" href="../css/responsive.css"></head><body>
+<div id="site-header"></div><main><div class="container">
+<div class="breadcrumbs"><a href="../index.html">Home</a><span class="sep">/</span><span>Faculty</span></div>
+<h1>Faculty Directory</h1>
+<p class="lede">Faculty engaged with Semester I, Division B &mdash; Computer Engineering, Academic Year 2026-2027.</p>
+<div class="grid grid-3" id="faculty-grid" style="margin-top:24px;"></div>
+</div></main><div id="site-footer"></div>
+<script type="module">
+import './../js/main.js';
+import { FACULTY } from '../data/faculty.js';
+document.getElementById('faculty-grid').innerHTML=FACULTY.map(f=>`<div class="card">
+ <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+  <div style="width:46px;height:46px;background:var(--primary-soft);color:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-family:var(--font-head);font-size:1.05rem;">${f.initials}</div>
+  <div><div style="font-weight:600;">${f.name}</div><div class="text-mute" style="font-size:.8rem;">${f.role}</div></div>
+ </div>
+ <div class="text-mute" style="font-size:.85rem;margin-bottom:8px;">${f.dept}</div>
+ ${f.subjects.length?`<ul style="margin:0;padding-left:18px;font-size:.85rem;">${f.subjects.map(s=>`<li>${s}</li>`).join('')}</ul>`:''}
+</div>`).join('');
+</script></body></html>
