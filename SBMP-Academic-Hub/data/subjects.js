@@ -1,5 +1,5 @@
 export const ATTENDANCE_RULES = { minimum: 75, warning: 70, critical: 60 };
-export const TYPE_LABELS = { TH: 'Theory', PR: 'Practical', TU: 'Tutorial', CL: 'Lecture' };
+export const TYPE_LABELS = { TH: 'Theory', PR: 'Practical', TU: 'Tutorial', CL: 'Lecture', TU: 'Tutorial' };
 
 export function getAttendanceStatus(percent) {
   if (percent >= ATTENDANCE_RULES.minimum) return { label: 'Safe (\u226575%)', class: 'safe' };
@@ -47,7 +47,8 @@ export const SUBJECTS = {
       { title: 'A Modern Introduction to Ancient Indian Mathematics', author: 'T.S. Bhanumurthy', pub: 'New Age International' }
     ],
     websites: ['https://www.mic-mathematics.com', 'https://www.math.com', 'https://www.mathplanet.com'],
-    type: ['TH', 'TH'],
+    type: ['TH', 'TU'],
+match: ['ENGINEERING MATHEMATICS', 'MATHEMATICS'],
     color: '#1e40af'
   },
   ASC268902: {
@@ -91,7 +92,8 @@ export const SUBJECTS = {
       { title: 'Engineering Chemistry', author: 'Jain and Jain', pub: 'Dhanpat Rai' }
     ],
     websites: ['https://www.physicsclassroom.com', 'https://www.khanacademy.org', 'https://chem.libretexts.org/'],
-    type: ['TH', 'TH'],
+    type: ['TH', 'PR'],
+match: ['APPLIED SCIENCE', 'APPLIED SCIEN'],
     color: '#047857'
   },
   CMS268903: {
@@ -139,7 +141,8 @@ export const SUBJECTS = {
       { title: 'Business Communication Skills for Engineers', author: 'Rai & Rai', pub: 'Himalaya Publications' }
     ],
     websites: ['https://www.skillsyouneed.com/general/communication-skills.html', 'https://open.lib.umn.edu/businesscommunication/'],
-    type: ['TH', 'TH'],
+    type: ['TH', 'TU'],
+match: ['COMMUNICATION SKILLS', 'COMMUNICATION'],
     color: '#b45309'
   },
   ENG268904: {
@@ -186,7 +189,8 @@ export const SUBJECTS = {
       { title: 'Technical Drawing with Engineering Graphics', author: 'Frederick Giesecke et al.', pub: 'Pearson Education' }
     ],
     websites: ['https://knowledge.autodesk.com/support/autocad', 'https://thesourcecad.com/autocad-tutorials/'],
-    type: ['TH', 'TH'],
+    type: ['PR', 'TH'],
+match: ['ENGINEERING GRAPHICS', 'GRAPHICS'],
     color: '#7c3aed'
   },
   FCS260801: {
@@ -232,7 +236,8 @@ export const SUBJECTS = {
       { title: 'Linux: Easy Linux for Beginners', author: 'Alvaro, Felix', pub: 'CreateSpace' }
     ],
     websites: ['https://www.javatpoint.com/ms-word-tutorial', 'https://www.guru99.com/introduction-to-microsoft-excel.html', 'https://www.javatpoint.com/powerpoint-tutorial'],
-    type: ['TH', 'TH'],
+    type: ['PR', 'TH'],
+match: ['FUNDAMENTALS OF COMPUT'],
     color: '#0369a1'
   },
   UHV268905: {
@@ -265,7 +270,8 @@ export const SUBJECTS = {
       { title: 'Universal Human Values', author: 'Dr. C.S. G. Krishnamacharyulu & Dr. Lalitha Ramakrishnan', pub: 'Himalaya Publishing House' }
     ],
     websites: ['https://www.uhv.org.in/', 'https://fdp-si.aicte-india.org/verifiedProgramDetailsList.php'],
-    type: ['TH', 'TH'],
+    type: ['TH', 'TU'],
+match: ['HUMAN VALUES'],
     color: '#be123c'
   },
   WSD260802: {
@@ -313,7 +319,8 @@ export const SUBJECTS = {
       { title: 'How to Do Everything with JavaScript', author: 'Scott Duffy', pub: 'McGraw-Hill' }
     ],
     websites: ['https://www.w3schools.com/html/', 'https://www.tutorialspoint.com/html/', 'https://www.javatpoint.com/html-tutorial', 'https://www.geeksforgeeks.org/html-tutorials/'],
-    type: ['TH', 'PR'],
+    type: ['PR', 'TH'],
+match: ['WEBSITE DESIGN'],
     color: '#0f766e'
   }
 };

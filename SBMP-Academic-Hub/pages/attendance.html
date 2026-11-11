@@ -8,7 +8,7 @@
 <div id="att-root">
   <section class="card att-upload" id="att-drop" style="margin-top:22px;">
     <h2 style="margin-bottom:6px;">Import attendance report</h2>
-    <p class="text-mute" style="margin-bottom:4px;">Upload the college PDF (<code>PR-CSE-B-S1</code> or <code>PR-CSE-B-S2</code>). It is parsed in your browser; nothing is uploaded anywhere.</p>
+    <p class="text-mute" style="margin-bottom:4px;">Upload the college PDF (<code>PR-CSE-B-S1</code> or <code>PR-CSE-B-S2</code>). Theory, tutorial and practical rows are read separately, and percentages are recalculated from the conducted and attended columns. Parsing happens in your browser; nothing is uploaded anywhere.</p>
     <div class="att-actions">
       <label class="btn btn-primary" for="att-file">Choose PDF</label>
       <input id="att-file" type="file" accept="application/pdf,.pdf" hidden>
@@ -17,7 +17,7 @@
     </div>
     <p id="att-status" class="att-status">No report loaded yet &mdash; you can also type the numbers into the table below.</p>
     <div id="att-paste" hidden>
-      <textarea id="att-paste-text" rows="5" placeholder="Paste rows from the report, e.g.&#10;EMT268901 24 30 0 0&#10;WSD260802 18 20 15 16"></textarea>
+      <textarea id="att-paste-text" rows="5" placeholder="Paste the report text, e.g.&#10;APPLIED SCIENCE TH-CSE-B 34 34&#10;WEBSITE DESIGNING PR-CSE-B-S2 44 44&#10;&#10;Or one row per line: EMT268901 TH 31 30 (conducted, attended)"></textarea>
       <button class="btn btn-primary btn-sm" type="button" id="att-paste-parse">Parse pasted text</button>
     </div>
   </section>

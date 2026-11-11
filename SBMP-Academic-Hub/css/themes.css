@@ -1,72 +1,157 @@
 /* ============================================================
-   SBMP Academic Hub - Theme tokens
-   Light: collegiate navy & gold. Dark: deep navy with warm gold.
-   Typography, radii and spacing tokens live in style.css; this
-   file only re-maps the colour scale and shadow depth per theme.
+   SBMP Academic Hub — Theme tokens
+   Single source of colour. Every component reads these
+   variables, so light and dark stay in sync and nothing is
+   left hard-coded (which is what breaks most dark modes).
+   Layout, type and radius tokens live in style.css.
    ============================================================ */
 
 /* ---------- Light (default) ---------- */
 :root{
-  --bg:#f8fafc;
+  color-scheme: light;
+
+  --bg:#f5f7fc;
+  --bg-tint:#eef2f9;
   --surface:#ffffff;
-  --surface-2:#f1f5f9;
-  --surface-3:#e6ecf4;
-  --border:#e2e8f0;
-  --border-strong:#cbd5e1;
-  --text:#0f172a;
-  --text-soft:#475269;
-  --text-mute:#64748b;
-  --primary:#0a1f4a;
-  --primary-hover:#061534;
-  --primary-soft:#e9eff9;
-  --accent:#b8873a;
-  --accent-soft:#faf4e8;
+  --surface-2:#f3f6fc;
+  --surface-3:#e8eef8;
+  --surface-inset:#fbfcfe;
+
+  --border:#e3e8f2;
+  --border-strong:#ccd5e6;
+
+  --text:#0b1426;
+  --text-soft:#414d66;
+  --text-mute:#5d6a86;
+
+  --primary:#132a63;
+  --primary-hover:#0a1a40;
+  --primary-soft:#e7eefb;
+  --on-primary:#ffffff;
+
+  --accent:#b3842f;
+  --accent-hover:#8c651c;
+  --accent-soft:#fbf3e1;
+  --on-accent:#ffffff;
+
   --success:#0f766e;
-  --warning:#b45309;
-  --danger:#b91c1c;
-  --shadow-xs:0 1px 2px rgba(10,31,74,.05);
-  --shadow-sm:0 2px 6px rgba(10,31,74,.07);
-  --shadow-md:0 6px 18px rgba(10,31,74,.09);
-  --shadow-lg:0 16px 40px rgba(10,31,74,.12);
+  --success-bg:#e4f6f2;
+  --success-border:#b3e2da;
+  --warning:#a35a09;
+  --warning-bg:#fdf2df;
+  --warning-border:#efd6a6;
+  --danger:#b3261e;
+  --danger-bg:#fdecea;
+  --danger-border:#f5c5c0;
+  --info:var(--primary);
+  --info-bg:var(--primary-soft);
+  --info-border:#cbd8f2;
+
+  --header-bg:rgba(255,255,255,.88);
+  --header-cell-bg:linear-gradient(180deg,#15306e,#0d214d);
+  --header-cell-fg:#ffffff;
+  --clock-bg:linear-gradient(155deg,#16306c 0%,#0a1a3f 100%);
+  --clock-fg:#ffffff;
+  --clock-glow:rgba(179,132,47,.22);
+  --highlight-outline:var(--primary);
+
+  --overlay:rgba(9,17,33,.44);
+  --hero-glow-a:rgba(19,42,99,.07);
+  --hero-glow-b:rgba(179,132,47,.09);
+
+  --shadow-xs:0 1px 2px rgba(11,20,38,.05);
+  --shadow-sm:0 2px 8px rgba(11,20,38,.06);
+  --shadow-md:0 12px 28px -14px rgba(11,20,38,.28);
+  --shadow-lg:0 28px 60px -28px rgba(11,20,38,.35);
+
+  --ring:rgba(19,42,99,.3);
+  --selection:rgba(179,132,47,.24);
+  --scrollbar:rgba(11,20,38,.18);
 }
 
 /* ---------- Dark ---------- */
 [data-theme="dark"]{
-  --bg:#0b1329;
-  --surface:#111c38;
-  --surface-2:#162342;
-  --surface-3:#1c2b4e;
-  --border:#22325a;
-  --border-strong:#2e4374;
-  --text:#f1f5f9;
-  --text-soft:#a9b7d0;
-  --text-mute:#7c8bab;
-  --primary:#7a9cf0;
-  --primary-hover:#9cb3f5;
-  --primary-soft:#17264a;
-  --accent:#e0b558;
-  --accent-soft:#2b2415;
+  color-scheme: dark;
+
+  --bg:#070c17;
+  --bg-tint:#0a1120;
+  --surface:#0e1728;
+  --surface-2:#131e33;
+  --surface-3:#1a2742;
+  --surface-inset:#0b1422;
+
+  --border:#1e2c47;
+  --border-strong:#2d3f61;
+
+  --text:#eaf0fb;
+  --text-soft:#a9b6d0;
+  --text-mute:#7b8aa8;
+
+  --primary:#9bb4ff;
+  --primary-hover:#bccdff;
+  --primary-soft:#182647;
+  --on-primary:#08122a;
+
+  --accent:#e6bd72;
+  --accent-hover:#f4d59d;
+  --accent-soft:#2b2314;
+  --on-accent:#1a1408;
+
   --success:#34d399;
-  --warning:#fbbf24;
-  --danger:#f87171;
-  --shadow-xs:0 1px 2px rgba(0,0,0,.35);
-  --shadow-sm:0 2px 8px rgba(0,0,0,.40);
-  --shadow-md:0 8px 22px rgba(0,0,0,.45);
-  --shadow-lg:0 20px 48px rgba(0,0,0,.55);
+  --success-bg:#0c2a24;
+  --success-border:#1d5548;
+  --warning:#f0b45f;
+  --warning-bg:#2b2111;
+  --warning-border:#5a451f;
+  --danger:#fb7185;
+  --danger-bg:#2e1620;
+  --danger-border:#5c2634;
+  --info:#9bb4ff;
+  --info-bg:#16233d;
+  --info-border:#2b3f68;
+
+  --header-bg:rgba(10,17,32,.84);
+  --header-cell-bg:linear-gradient(180deg,#1c2c4d,#152238);
+  --header-cell-fg:#e8eeff;
+  --clock-bg:linear-gradient(155deg,#16274a 0%,#0a1222 100%);
+  --clock-fg:#eef3ff;
+  --clock-glow:rgba(230,189,114,.18);
+  --highlight-outline:var(--accent);
+
+  --overlay:rgba(2,5,12,.66);
+  --hero-glow-a:rgba(94,133,224,.12);
+  --hero-glow-b:rgba(230,189,114,.1);
+
+  --shadow-xs:0 1px 2px rgba(0,0,0,.4);
+  --shadow-sm:0 2px 10px rgba(0,0,0,.45);
+  --shadow-md:0 14px 32px -16px rgba(0,0,0,.75);
+  --shadow-lg:0 30px 70px -30px rgba(0,0,0,.85);
+
+  --ring:rgba(155,180,255,.38);
+  --selection:rgba(230,189,114,.22);
+  --scrollbar:rgba(226,236,255,.2);
 }
 
-/* ---------- Dark component surfaces ---------- */
-[data-theme="dark"] .site-header{background:rgba(17,28,56,.92)}
-[data-theme="dark"] .clock-card{background:linear-gradient(160deg,#17264a,#0b1529)}
-[data-theme="dark"] .tt-cell.batch-S1{background:#1b2c4e}
-[data-theme="dark"] .tt-cell.batch-S2{background:#182b45}
-[data-theme="dark"] .tt-cell.library{background:#3a2f10;color:#e0b558}
-[data-theme="dark"] .notice-date{background:#17264a;color:#9cb3f5}
-[data-theme="dark"] .unit .unit-no{background:#17264a;color:#9cb3f5}
+/* ---------- Cross-theme details ---------- */
+::selection{background:var(--selection);color:var(--text)}
 
-/* ---------- Timetable highlight outlines (inset, no glow) ---------- */
-table.tt-table td.tt-td.tt-highlighted{outline:2px solid var(--primary);outline-offset:-2px}
-[data-theme="dark"] table.tt-table td.tt-td.tt-highlighted{outline:2px solid var(--accent);outline-offset:-2px}
+html{scrollbar-color:var(--scrollbar) transparent}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--scrollbar);border-radius:99px;border:3px solid var(--bg)}
+::-webkit-scrollbar-thumb:hover{background:var(--border-strong)}
 
-/* ---------- Theme transition ---------- */
-html,body,.site-header,.card,.quick-tile,.subject-card,.notice-item,.task-item,.unit,table.data,.site-footer{transition:background-color 200ms ease,color 200ms ease,border-color 200ms ease}
+/* Timetable "now" / filter highlight: inset outline, never a glow. */
+table.tt-table td.tt-td.now-cell,
+table.tt-table td.tt-td.tt-highlighted{outline:2px solid var(--highlight-outline);outline-offset:-2px}
+table.tt-table td.tt-td.now-cell::after{color:var(--highlight-outline);background:transparent}
+
+/* Theme switch should feel instant but not jarring. */
+html,body,.site-header,.card,.quick-tile,.subject-card,.notice-item,.task-item,.unit,table.data,table.tt-table td,.site-footer,
+.att-kpi,.search-dialog,.badge,.status-chip,textarea,input,select{
+  transition:background-color 160ms ease,color 160ms ease,border-color 160ms ease;
+}
+@media (prefers-reduced-motion: reduce){
+  html,body,.site-header,.card,.quick-tile,.subject-card,.notice-item,.task-item,.unit,table.data,table.tt-table td,.site-footer,
+  .att-kpi,.search-dialog,.badge,.status-chip,textarea,input,select{transition:none}
+}
