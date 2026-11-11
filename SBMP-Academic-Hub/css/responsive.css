@@ -134,6 +134,9 @@
   .unit .hours { font-size:.72rem; }
 
   .breadcrumbs { font-size:.76rem; margin-bottom:8px; }
+
+  .search-kbd { display: none !important; }
+
   .section-head { margin-bottom:14px; }
   .section-head .link { font-size:.82rem; }
 }
@@ -191,6 +194,11 @@
   .footer-brand img { height:34px; }
 }
 
+
+
+@media (max-width: 500px) {
+  .ttm-row { grid-template-columns: 78px 1fr; gap: 8px; padding: 10px; }
+}
 @media (max-width: 360px){
   .brand-text .portal { font-size:.92rem; }
   .brand-logo { height:28px; }
