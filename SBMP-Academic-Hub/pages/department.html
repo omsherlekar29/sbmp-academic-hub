@@ -1,6 +1,7 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Department - SBMP Academic Hub</title>
-<link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/themes.css"><link rel="stylesheet" href="../css/responsive.css"></head><body>
+<link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/themes.css"><link rel="stylesheet" href="../css/responsive.css">
+<link rel="stylesheet" href="../css/print.css"></head><body>
 <div id="site-header"></div><main><div class="container">
 <div class="breadcrumbs"><a href="../index.html">Home</a><span class="sep">/</span><span>Department</span></div>
 <h1>Computer Engineering Department</h1>
@@ -18,5 +19,25 @@
 <p>For institutional information, admissions, and current announcements, please refer to the official SBMP website.</p>
 <a class="btn btn-primary" href="https://sbmp.ac.in/" target="_blank" rel="noopener">Visit sbmp.ac.in &nearr;</a>
 </div></section>
+<section class="section" id="about"><h2>About this hub</h2><div class="card">
+<p>SBMP Academic Hub is a student-built academic portal for the Computer Engineering Diploma, Semester I, Division B, at Shri Bhagubhai Mafatlal Polytechnic. It gathers the information a first-year student reaches for daily into one place instead of scattered PDFs and group chats.</p>
+<p>The portal brings together the division timetable with batch filters, the unit-wise syllabus and portion, subject resources, the faculty and student directories, notices, a task planner, and an attendance tracker that reads the official college report and projects the mandatory 75% threshold. Everything runs in the browser: the attendance numbers you import or type are stored on your own device and are never uploaded anywhere.</p>
+</div></section>
+<section class="section" id="team"><h2>Project &amp; Team</h2><p class="text-mute" style="margin-top:-8px;">Built and maintained by Team TechNova, Division B.</p><div class="grid grid-2" id="team-grid"></div></section>
 </div></main><div id="site-footer"></div>
-<script type="module">import './../js/main.js';</script></body></html>
+<script type="module">
+import './../js/main.js';
+import { TEAM } from '../data/team.js';
+const grid = document.getElementById('team-grid');
+if (grid) {
+  grid.innerHTML = Object.values(TEAM).map((m) => `
+    <div class="card">
+      <div class="flex items-center justify-between" style="gap:10px;">
+        <span class="badge badge-primary">${m.roll}</span>
+        <span class="text-mute" style="font-size:.76rem;">${m.role}</span>
+      </div>
+      <h3 style="margin:12px 0 6px;font-size:1rem;">${m.name}</h3>
+      <p style="margin:0;font-size:.87rem;line-height:1.55;">${m.contribution}</p>
+    </div>`).join('');
+}
+</script></body></html>
