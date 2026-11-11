@@ -35,16 +35,23 @@ function injectHeader() {
     </button>
     <nav class="header-nav" id="header-nav">
      <a class="nav-link" href="${rp()}index.html" data-nav="home">Home</a>
-     <a class="nav-link" href="${rp()}pages/academics.html" data-nav="academics">Academics</a>
      <a class="nav-link" href="${rp()}pages/timetable.html" data-nav="timetable">Timetable</a>
      <a class="nav-link" href="${rp()}pages/attendance.html" data-nav="attendance">Attendance</a>
      <a class="nav-link" href="${rp()}pages/subjects.html" data-nav="subjects">Subjects</a>
-     <a class="nav-link" href="${rp()}pages/portion.html" data-nav="portion">Portion</a>
      <a class="nav-link" href="${rp()}pages/faculty.html" data-nav="faculty">Faculty</a>
      <a class="nav-link" href="${rp()}pages/students.html" data-nav="students">Students</a>
-     <a class="nav-link" href="${rp()}pages/notices.html" data-nav="notices">Notices</a>
-     <a class="nav-link" href="${rp()}pages/planner.html" data-nav="planner">Planner</a>
-     <a class="nav-link" href="${rp()}pages/feedback.html" data-nav="feedback">Feedback</a>
+     <div class="nav-more" id="nav-more">
+      <button class="nav-link nav-more-toggle" id="nav-more-toggle" type="button" aria-expanded="false" aria-controls="nav-more-menu">More
+       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="nav-more-menu" id="nav-more-menu" role="menu">
+       <a class="nav-more-link" href="${rp()}pages/academics.html" data-nav="academics" role="menuitem">Academics</a>
+       <a class="nav-more-link" href="${rp()}pages/portion.html" data-nav="portion" role="menuitem">Portion</a>
+       <a class="nav-more-link" href="${rp()}pages/notices.html" data-nav="notices" role="menuitem">Notices</a>
+       <a class="nav-more-link" href="${rp()}pages/planner.html" data-nav="planner" role="menuitem">Planner</a>
+       <a class="nav-more-link" href="${rp()}pages/feedback.html" data-nav="feedback" role="menuitem">Feedback</a>
+      </div>
+     </div>
     </nav>
     <div class="header-utility">
      <button class="icon-btn search-trigger" id="search-trigger" type="button" aria-label="Search (Ctrl+K)" title="Search (Ctrl+K)">
@@ -107,10 +114,30 @@ function injectFooter() {
 }
 
 function setupMobileMenu() {
-  const b = document.getElementById('menu-toggle');
-  const n = document.getElementById('header-nav');
-  if (!b || !n) return;
-  b.addEventListener('click', () => n.classList.toggle('open'));
+  const button = document.getElementById('menu-toggle');
+  const nav = document.getElementById('header-nav');
+  if (button && nav) {
+    button.addEventListener('click', () => nav.classList.toggle('open'));
+    nav.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => nav.classList.remove('open')));
+  }
+
+  const more = document.getElementById('nav-more');
+  const toggle = document.getElementById('nav-more-toggle');
+  if (!more || !toggle) return;
+  const close = () => { more.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); };
+  toggle.addEventListener('click', (event) => {
+    event.stopPropagation();
+    const isOpen = !more.classList.contains('open');
+    more.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+  document.addEventListener('click', (event) => { if (!more.contains(event.target)) close(); });
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    close();
+    if (nav) nav.classList.remove('open');
+  });
+  more.querySelectorAll('.nav-more-link').forEach((link) => link.addEventListener('click', close));
 }
 
 function setActiveNav() {
@@ -119,7 +146,11 @@ function setActiveNav() {
   let k = f.replace('.html', '');
   if (f === 'index.html' || f === '') k = 'home';
   if (p.includes('/subjects/')) k = 'subjects';
-  document.querySelectorAll('.nav-link').forEach((l) => {
+  document.querySelectorAll('.nav-link, .nav-more-link').forEach((l) => {
     if (l.dataset.nav === k) l.classList.add('active');
   });
+  if (document.querySelector('.nav-more-link.active')) {
+    const moreToggle = document.getElementById('nav-more-toggle');
+    if (moreToggle) moreToggle.classList.add('active');
+  }
 }

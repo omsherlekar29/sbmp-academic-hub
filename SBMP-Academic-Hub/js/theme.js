@@ -8,4 +8,4 @@ export function initTheme(){
   const n=c==='dark'?'light':'dark';apply(n);localStorage.setItem('sbmp-theme',n);
  });
 }
-function apply(t){document.documentElement.setAttribute('data-theme',t);}
+function apply(t){document.documentElement.setAttribute('data-theme',t);document.documentElement.style.backgroundColor=(t==='dark'?'#070c17':'#f5f7fc');}
