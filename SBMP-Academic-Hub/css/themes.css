@@ -1,33 +1,72 @@
-/* Light Mode */
-:root {
- --bg:#f8fafc;
- --surface:#ffffff;
- --primary:#0a1f4a;
- --primary-hover:#1e3a5f;
- --accent-gold:#b8873a;
- --border:#e2e8f0;
- --text:#0f172a;
- --text-soft:#475269;
- --text-mute:#64748b;
+/* ============================================================
+   SBMP Academic Hub - Theme tokens
+   Light: collegiate navy & gold. Dark: deep navy with warm gold.
+   Typography, radii and spacing tokens live in style.css; this
+   file only re-maps the colour scale and shadow depth per theme.
+   ============================================================ */
+
+/* ---------- Light (default) ---------- */
+:root{
+  --bg:#f8fafc;
+  --surface:#ffffff;
+  --surface-2:#f1f5f9;
+  --surface-3:#e6ecf4;
+  --border:#e2e8f0;
+  --border-strong:#cbd5e1;
+  --text:#0f172a;
+  --text-soft:#475269;
+  --text-mute:#64748b;
+  --primary:#0a1f4a;
+  --primary-hover:#061534;
+  --primary-soft:#e9eff9;
+  --accent:#b8873a;
+  --accent-soft:#faf4e8;
+  --success:#0f766e;
+  --warning:#b45309;
+  --danger:#b91c1c;
+  --shadow-xs:0 1px 2px rgba(10,31,74,.05);
+  --shadow-sm:0 2px 6px rgba(10,31,74,.07);
+  --shadow-md:0 6px 18px rgba(10,31,74,.09);
+  --shadow-lg:0 16px 40px rgba(10,31,74,.12);
 }
 
-/* Dark Mode */
-[data-theme="dark"] {
- --bg:#0b1329;
- --surface:#111c38;
- --primary:#7a9cf0;
- --primary-hover:#9cb3f5;
- --accent-gold:#e0b558;
- --border:#22325a;
- --text:#f1f5f9;
- --text-soft:#a0aec0;
- --text-mute:#718096;
+/* ---------- Dark ---------- */
+[data-theme="dark"]{
+  --bg:#0b1329;
+  --surface:#111c38;
+  --surface-2:#162342;
+  --surface-3:#1c2b4e;
+  --border:#22325a;
+  --border-strong:#2e4374;
+  --text:#f1f5f9;
+  --text-soft:#a9b7d0;
+  --text-mute:#7c8bab;
+  --primary:#7a9cf0;
+  --primary-hover:#9cb3f5;
+  --primary-soft:#17264a;
+  --accent:#e0b558;
+  --accent-soft:#2b2415;
+  --success:#34d399;
+  --warning:#fbbf24;
+  --danger:#f87171;
+  --shadow-xs:0 1px 2px rgba(0,0,0,.35);
+  --shadow-sm:0 2px 8px rgba(0,0,0,.40);
+  --shadow-md:0 8px 22px rgba(0,0,0,.45);
+  --shadow-lg:0 20px 48px rgba(0,0,0,.55);
 }
 
-/* Timetable highlight outlines */
-table.tt-table td.tt-td.tt-highlighted { outline: 2px solid var(--primary); outline-offset: -2px; }
-[data-theme="dark"] table.tt-table td.tt-td.tt-highlighted { outline: 2px solid var(--gold-bright); outline-offset: -2px; }
+/* ---------- Dark component surfaces ---------- */
+[data-theme="dark"] .site-header{background:rgba(17,28,56,.92)}
+[data-theme="dark"] .clock-card{background:linear-gradient(160deg,#17264a,#0b1529)}
+[data-theme="dark"] .tt-cell.batch-S1{background:#1b2c4e}
+[data-theme="dark"] .tt-cell.batch-S2{background:#182b45}
+[data-theme="dark"] .tt-cell.library{background:#3a2f10;color:#e0b558}
+[data-theme="dark"] .notice-date{background:#17264a;color:#9cb3f5}
+[data-theme="dark"] .unit .unit-no{background:#17264a;color:#9cb3f5}
 
-/* Colour variables for authoring */
-:root { --primary-bright: #1e3a5f; }
-[data-theme="dark"] { --gold-bright: #e0b558; }
+/* ---------- Timetable highlight outlines (inset, no glow) ---------- */
+table.tt-table td.tt-td.tt-highlighted{outline:2px solid var(--primary);outline-offset:-2px}
+[data-theme="dark"] table.tt-table td.tt-td.tt-highlighted{outline:2px solid var(--accent);outline-offset:-2px}
+
+/* ---------- Theme transition ---------- */
+html,body,.site-header,.card,.quick-tile,.subject-card,.notice-item,.task-item,.unit,table.data,.site-footer{transition:background-color 200ms ease,color 200ms ease,border-color 200ms ease}

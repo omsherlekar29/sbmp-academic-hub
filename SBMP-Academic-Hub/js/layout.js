@@ -1,17 +1,30 @@
-const SVKM_LOGO='assets/logos/svkm-logo.jpg';
-const SBMP_LOGO='assets/logos/sbmp-logo.jpg';
-const OFFICIAL_URL='https://sbmp.ac.in/';
-export function renderLayout(){injectHeader();injectFooter();setupMobileMenu();setActiveNav();}
-function rp(){const p=window.location.pathname;if(p.includes('/pages/')||p.includes('/subjects/'))return '../';return '';}
-function injectHeader(){
- const host=document.getElementById('site-header');if(!host)return;
- host.innerHTML=`<
+const SVKM_LOGO = 'assets/logos/svkm-logo.jpg';
+const SBMP_LOGO = 'assets/logos/sbmp-logo.jpg';
+const OFFICIAL_URL = 'https://sbmp.ac.in/';
+
+export function renderLayout() {
+  injectHeader();
+  injectFooter();
+  setupMobileMenu();
+  setActiveNav();
+}
+
+function rp() {
+  const p = window.location.pathname;
+  if (p.includes('/pages/') || p.includes('/subjects/')) return '../';
+  return '';
+}
+
+function injectHeader() {
+  const host = document.getElementById('site-header');
+  if (!host) return;
+  host.innerHTML = `
   <header class="site-header">
    <div class="header-inner">
     <a class="brand-block" href="${rp()}index.html">
-     <img class="brand-logo" src="${rp()}${SVKM_LOGO}" alt="SVKM" onerror="this.style.display='none'>
+     <img class="brand-logo" src="${rp()}${SVKM_LOGO}" alt="SVKM logo" onerror="this.style.display='none'">
      <div class="logo-sep"></div>
-     <img class="brand-logo" src="${rp()}${SBMP_LOGO}" alt="SBMP" onerror="this.style.display='none'>
+     <img class="brand-logo" src="${rp()}${SBMP_LOGO}" alt="SBMP logo" onerror="this.style.display='none'">
      <div class="brand-text">
       <span class="inst">Shri Bhagubhai Mafatlal Polytechnic</span>
       <span class="portal">SBMP Academic Hub</span>
@@ -43,53 +56,64 @@ function injectHeader(){
    </div>
   </header>`;
 }
-function injectFooter(){
- const host=document.getElementById('site-footer');if(!host)return;
- host.innerHTML=`<
+
+function injectFooter() {
+  const host = document.getElementById('site-footer');
+  if (!host) return;
+  host.innerHTML = `
   <footer class="site-footer">
    <div class="container">
     <div class="footer-grid">
      <div>
       <div class="footer-brand">
-       <img src="${rp()}${SBMP_LOGO}" alt="SBMP" onerror="this.style.display='none'>
+       <img src="${rp()}${SBMP_LOGO}" alt="SBMP logo" onerror="this.style.display='none'">
        <div class="fb-text">
-        <strong>Shri Bhagubhai Mafatlal Polytechnic & College of Engineering</strong>
+        <strong>Shri Bhagubhai Mafatlal Polytechnic &amp; College of Engineering</strong>
         <span>Under Shri Vile Parle Kelavani Mandal (SVKM)</span>
        </div>
       </div>
+      <p style="font-size:.82rem;margin:0;">Computer Engineering Department<br>Semester I &mdash; Division B &mdash; AY 2026&ndash;2027</p>
      </div>
-     <p style="font-size:.82rem;margin:0;">Computer Engineering Department<br>Semester I &mdash; Division B &mdash; AY 2026&ndash;2027</p>
+     <div><h4>Academic</h4><div class="footer-links">
+      <a href="${rp()}pages/timetable.html">Timetable</a>
+      <a href="${rp()}pages/subjects.html">Subjects</a>
+      <a href="${rp()}pages/portion.html">Portion</a>
+      <a href="${rp()}pages/faculty.html">Faculty</a>
+     </div></div>
+     <div><h4>Students</h4><div class="footer-links">
+      <a href="${rp()}pages/students.html">Directory</a>
+      <a href="${rp()}pages/planner.html">Task Planner</a>
+      <a href="${rp()}pages/notices.html">Notices</a>
+      <a href="${rp()}pages/feedback.html">Feedback</a>
+     </div></div>
+     <div><h4>Institution</h4><div class="footer-links">
+      <a href="${rp()}pages/department.html">Department</a>
+      <a href="${rp()}pages/academics.html">Academics</a>
+      <a href="${OFFICIAL_URL}" target="_blank" rel="noopener">sbmp.ac.in &nearr;</a>
+     </div></div>
     </div>
-    <div><h4>Academic</h4><div class="footer-links">
-     <a href="${rp()}pages/timetable.html">Timetable</a>
-     <a href="${rp()}pages/subjects.html">Subjects</a>
-     <a href="${rp()}pages/portion.html">Portion</a>
-     <a href="${rp()}pages/faculty.html">Faculty</a>
-    </div></div>
-    <div><h4>Students</h4><div class="footer-links">
-     <a href="${rp()}pages/students.html">Directory</a>
-     <a href="${rp()}pages/planner.html">Task Planner</a>
-     <a href="${rp()}pages/notices.html">Notices</a>
-     <a href="${rp()}pages/feedback.html">Feedback</a>
-    </div></div>
-    <div><h4>Institution</h4><div class="footer-links">
-     <a href="${rp()}pages/department.html">Department</a>
-     <a href="${rp()}pages/academics.html">Academics</a>
-     <a href="${OFFICIAL_URL}" target="_blank" rel="noopener">sbmp.ac.in &nearr;</a>
-    </div></div>
+    <div class="footer-bottom">
+     <span>&copy; 2026 Team TechNova &middot; All rights reserved</span>
+     <span>Built by B041 &middot; B052 &middot; B053 &middot; B056 &middot; B060</span>
+    </div>
    </div>
-   <div class="footer-bottom">
-    <span>&copy; 2026 Team TechNova \u00b7 All rights reserved</span>
-    <span>Built by B041 \u00b7 B052 \u00b7 B053 \u00b7 B056 \u00b7 B060</span>
-   </div>
-  </div>
- </footer>`;
+  </footer>`;
 }
-function setupMobileMenu(){const b=document.getElementById('menu-toggle'),n=document.getElementById('header-nav');if(!b||!n)return;b.addEventListener('click',()=>n.classList.toggle('open'));}
-function setActiveNav(){
- const p=window.location.pathname;
- let f=p.split('/').pop()||'index.html';
- let k=f.replace('.html','');if(f==='index.html'||f==='')k='home';
- if(p.includes('/subjects/'))k='subjects';
- document.querySelectorAll('.nav-link').forEach(l=>{if(l.dataset.nav===k)l.classList.add('active');});
+
+function setupMobileMenu() {
+  const b = document.getElementById('menu-toggle');
+  const n = document.getElementById('header-nav');
+  if (!b || !n) return;
+  b.addEventListener('click', () => n.classList.toggle('open'));
+}
+
+function setActiveNav() {
+  const p = window.location.pathname;
+  const f = p.split('/').pop() || 'index.html';
+  let k = f.replace('.html', '');
+  if (f === 'index.html' || f === '') k = 'home';
+  if (p.includes('/subjects/')) k = 'subjects';
+  document.querySelectorAll('.nav-link').forEach((l) => {
+    if (l.dataset.nav === k) l.classList.add('active');
+  });
 }

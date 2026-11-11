@@ -1,7 +1,7 @@
 export function initClock() {
  const t = document.getElementById('clock-time');
  const d = document.getElementById('clock-date');
- const r = document.getElementById('radar-period');
+ const r = document.getElementById('clock-period') || document.getElementById('radar-period');
  if (!t && !d) return;
 
  // Timetable data for Division B, Batch S1 & S2
