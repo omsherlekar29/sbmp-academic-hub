@@ -26,6 +26,13 @@ export function initStudents() {
     });
   }
 
+  const params = new URLSearchParams(window.location.search);
+  const preset = params.get('q');
+  if (preset && search) {
+    search.value = preset;
+    query = preset.toLowerCase().trim();
+  }
+
   render();
 }
 

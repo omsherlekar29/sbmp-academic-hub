@@ -2,7 +2,7 @@ export const ATTENDANCE_RULES = { minimum: 75, warning: 70, critical: 60 };
 export const TYPE_LABELS = { TH: 'Theory', PR: 'Practical', TU: 'Tutorial', CL: 'Lecture' };
 
 export function getAttendanceStatus(percent) {
-  if (percent >= ATTENDANCE_RULES.minimum) return { label: 'Safe (\u00b775%)', class: 'safe' };
+  if (percent >= ATTENDANCE_RULES.minimum) return { label: 'Safe (\u226575%)', class: 'safe' };
   if (percent >= ATTENDANCE_RULES.warning) return { label: 'Warning', class: 'warning' };
   if (percent >= ATTENDANCE_RULES.critical) return { label: 'Low', class: 'low' };
   return { label: 'Critical', class: 'critical' };

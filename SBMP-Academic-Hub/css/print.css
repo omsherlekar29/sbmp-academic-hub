@@ -109,3 +109,12 @@
     print-color-adjust: exact !important;
   }
 }
+
+@media print{
+  .search-overlay,
+  .att-upload,
+  .att-actions,
+  .att-sim,
+  .att-log-form,
+  .section-head .btn{ display:none !important; }
+}
