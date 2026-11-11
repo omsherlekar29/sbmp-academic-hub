@@ -242,6 +242,11 @@
   .student-table th:nth-child(3), .student-table td:nth-child(3),
   .student-table th:nth-child(5), .student-table td:nth-child(5){ display:none; }
   .student-table th, .student-table td{ padding:10px 11px; }
+  /* Fixed layout lets long names wrap instead of forcing a side-scroll */
+  .student-table{ table-layout:fixed; width:100%; }
+  .student-table th:nth-child(1), .student-table td:nth-child(1){ width:72px; }
+  .student-table th:nth-child(4), .student-table td:nth-child(4){ width:66px; }
+  .student-table td{ overflow-wrap:anywhere; }
 }
 @media (max-width: 400px){
   .student-table th, .student-table td{ padding:9px 8px; }
