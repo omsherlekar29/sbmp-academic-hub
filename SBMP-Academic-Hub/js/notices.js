@@ -43,3 +43,38 @@ export function initCalendarStrip(){
 }
 
 function esc(s){if(!s)return '';return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+export function buildIcs(events){
+ const stamp=new Date().toISOString().replace(/[-:]/g,'').split('.')[0]+'Z';
+ const rows=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//SBMP Academic Hub//Semester I//EN','CALSCALE:GREGORIAN'];
+ events.forEach((e,i)=>{
+  const d=e.date.replace(/-/g,'');
+  rows.push('BEGIN:VEVENT',
+   `UID:sbmp-${d}-${i}@sbmp-academic-hub`,
+   `DTSTAMP:${stamp}`,
+   `DTSTART;VALUE=DATE:${d}`,
+   `DTEND;VALUE=DATE:${d}`,
+   `SUMMARY:${String(e.label).replace(/[,;]/g,(c)=>'\\'+c).replace(/\n/g,'\\n')}`,
+   'END:VEVENT');
+ });
+ rows.push('END:VCALENDAR');
+ return rows.join('\r\n');
+}
+
+export function initCalendarDownload(){
+ const host=document.getElementById('calendar-strip');
+ if(!host||document.getElementById('ics-download'))return;
+ const btn=document.createElement('button');
+ btn.type='button';btn.id='ics-download';btn.className='btn btn-secondary btn-sm';
+ btn.textContent='Download .ics';
+ btn.style.marginBottom='14px';
+ btn.addEventListener('click',()=>{
+  const blob=new Blob([buildIcs(CALENDAR_EVENTS)],{type:'text/calendar;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;a.download='sbmp-semester-1-calendar.ics';
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+ });
+ host.parentNode.insertBefore(btn,host);
+}

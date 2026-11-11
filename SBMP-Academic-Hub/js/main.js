@@ -1,7 +1,7 @@
 import { renderLayout } from './layout.js';
 import { initTheme } from './theme.js';
 import { initClock } from './clock.js';
-import { initHomeNotices, initCalendarStrip } from './notices.js';
+import { initHomeNotices, initCalendarStrip, initCalendarDownload } from './notices.js';
 import { SUBJECTS, SUBJECT_ORDER } from '../data/subjects.js';
 import { SUBJECT_COLORS } from '../data/timetable.js';
 import { initPolish } from './polish.js';
@@ -13,6 +13,7 @@ function boot(){
   try { initClock(); }    catch(e){ console.error('Clock error:',  e); }
   try { initHomeNotices(); } catch(e){ console.error('Home notices error:', e); }
   try { initCalendarStrip(); } catch(e){ console.error('Calendar error:', e); }
+  try { initCalendarDownload(); } catch(e){ console.error('Calendar export error:', e); }
   try { initSubjectsPreview(); } catch(e){ console.error('Subjects preview error:', e); }
   try { initSearch(); } catch(e){ console.error('Search error:', e); }
   setTimeout(initPolish, 50);
