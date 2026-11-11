@@ -6,8 +6,18 @@ export function initPlanner(){
  renderForm();renderFilters();renderList();
 }
 export function initSubjectPlanner(code){
- const r=document.getElementById('subject-planner-form')||document.getElementById('subject-task-list')||document.getElementById('subject-planner');if(!r)return;
- renderSubjectForm(code);renderSubjectList(code);
+ // Subject pages mount their planner markup from renderSubjectDetail, which can
+ // finish after this call, so wait for the containers instead of racing them.
+ const find=()=>document.getElementById('subject-planner-form')||document.getElementById('subject-task-list')||document.getElementById('subject-planner');
+ const start=()=>{renderSubjectForm(code);renderSubjectList(code);};
+ if(find()){start();return;}
+ let done=false;
+ const obs=new MutationObserver(()=>{
+  if(done||!find())return;
+  done=true;obs.disconnect();start();
+ });
+ obs.observe(document.body,{childList:true,subtree:true});
+ setTimeout(()=>{if(!done)obs.disconnect();},5000);
 }
 function load(){try{return JSON.parse(localStorage.getItem(KEY))||[];}catch{return [];}}
 function save(){localStorage.setItem(KEY,JSON.stringify(tasks));}
