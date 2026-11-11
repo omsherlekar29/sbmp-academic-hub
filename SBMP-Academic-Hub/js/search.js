@@ -34,6 +34,7 @@ function buildIndex() {
     ['Notices', 'pages/notices.html', 'notices calendar events exams'],
     ['Feedback', 'pages/feedback.html', 'feedback form response'],
     ['Academics', 'pages/academics.html', 'academics curriculum programme'],
+    ['About', 'pages/about.html', 'about project team credits privacy'],
     ['Department', 'pages/department.html', 'department institute about'],
   ].forEach(([title, path, keywords]) => {
     entries.push({ group: 'Page', title, sub: path, href: base + path, keywords });

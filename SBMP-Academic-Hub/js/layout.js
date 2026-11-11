@@ -45,6 +45,7 @@ function injectHeader() {
        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
       </button>
       <div class="nav-more-menu" id="nav-more-menu" role="menu">
+       <a class="nav-more-link" href="${rp()}pages/about.html" data-nav="about" role="menuitem">About</a>
        <a class="nav-more-link" href="${rp()}pages/academics.html" data-nav="academics" role="menuitem">Academics</a>
        <a class="nav-more-link" href="${rp()}pages/portion.html" data-nav="portion" role="menuitem">Portion</a>
        <a class="nav-more-link" href="${rp()}pages/notices.html" data-nav="notices" role="menuitem">Notices</a>
@@ -100,6 +101,7 @@ function injectFooter() {
       <a href="${rp()}pages/feedback.html">Feedback</a>
      </div></div>
      <div><h4>Institution</h4><div class="footer-links">
+      <a href="${rp()}pages/about.html">About</a>
       <a href="${rp()}pages/department.html">Department</a>
       <a href="${rp()}pages/academics.html">Academics</a>
       <a href="${OFFICIAL_URL}" target="_blank" rel="noopener">sbmp.ac.in &nearr;</a>

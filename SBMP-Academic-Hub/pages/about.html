@@ -1,0 +1,48 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><script>(function(){try{var t=localStorage.getItem("sbmp-theme");if(t!=="dark"&&t!=="light"){t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}var r=document.documentElement;r.setAttribute("data-theme",t);r.style.backgroundColor=t==="dark"?"#070c17":"#f5f7fc";}catch(e){}})();</script>
+<title>About - SBMP Academic Hub</title>
+<link rel="stylesheet" href="../css/style.css"><link rel="stylesheet" href="../css/themes.css"><link rel="stylesheet" href="../css/responsive.css"><link rel="stylesheet" href="../css/print.css"></head><body>
+<div id="site-header"></div><main><div class="container">
+<div class="breadcrumbs"><a href="../index.html">Home</a><span class="sep">/</span><span>About</span></div>
+<h1>About this hub</h1>
+<p class="lede">SBMP Academic Hub is a student-built academic portal for the Computer Engineering Diploma, Semester I, Division B at Shri Bhagubhai Mafatlal Polytechnic. It puts the timetable, attendance, syllabus, people, notices and planning that first-year students otherwise chase across PDFs and group chats into one place.</p>
+
+<section class="section" style="margin-top:30px;"><h2>What's inside</h2><div class="grid grid-3">
+<div class="card"><div style="font-weight:600;">Timetable</div><div class="text-mute" style="font-size:.88rem;">Weekly Division B schedule with S1/S2 lab batches, current-period highlighting and a print layout.</div></div>
+<div class="card"><div style="font-weight:600;">Attendance</div><div class="text-mute" style="font-size:.88rem;">Import the official college report to track theory, tutorials and practicals against the 75% threshold, with a what-if simulator.</div></div>
+<div class="card"><div style="font-weight:600;">Syllabus</div><div class="text-mute" style="font-size:.88rem;">Unit-wise portion, course outcomes, practicals and study resources for all seven Semester I subjects.</div></div>
+<div class="card"><div style="font-weight:600;">People</div><div class="text-mute" style="font-size:.88rem;">Faculty directory and the Division B student list.</div></div>
+<div class="card"><div style="font-weight:600;">Notices &amp; calendar</div><div class="text-mute" style="font-size:.88rem;">Department notices plus the academic calendar, downloadable as a <code>.ics</code> file.</div></div>
+<div class="card"><div style="font-weight:600;">Planning</div><div class="text-mute" style="font-size:.88rem;">A task planner for every subject, and a feedback form for improvements.</div></div>
+</div></section>
+
+<section class="section"><h2>Built to be private</h2><div class="card">
+<p>The portal is a static site: there is no server, no account and no analytics. Attendance numbers, planner tasks and feedback stay in your own browser's local storage and are never uploaded. The only external request is the PDF.js library loaded from a CDN when you choose to import a report.</p>
+<p>The student list intentionally stores only roll number, salutation, name and batch — no SAP or registration numbers.</p>
+</div></section>
+
+<section class="section" id="team"><h2>Project &amp; Team</h2><p class="text-mute" style="margin-top:-8px;">Built and maintained by Team TechNova, Division B.</p><div class="grid grid-2" id="team-grid"></div></section>
+
+<section class="section"><h2>Institution</h2><div class="card">
+<p style="margin-bottom:14px;"><strong>Shri Bhagubhai Mafatlal Polytechnic &amp; College of Engineering</strong><br><span class="text-mute">Under Shri Vile Parle Kelavani Mandal (SVKM) · Computer Engineering Department · Semester I, Division B · AY 2026&ndash;2027</span></p>
+<div class="att-actions" style="margin:0;">
+<a class="btn btn-primary" href="https://sbmp.ac.in/" target="_blank" rel="noopener">Official website &nearr;</a>
+<a class="btn btn-secondary" href="department.html">Department page</a>
+</div>
+</div></section>
+</div></main><div id="site-footer"></div>
+<script type="module">
+import './../js/main.js';
+import { TEAM } from '../data/team.js';
+const grid = document.getElementById('team-grid');
+if (grid) {
+  grid.innerHTML = Object.values(TEAM).map((m) => `
+    <div class="card">
+      <div class="flex items-center justify-between" style="gap:10px;">
+        <span class="badge badge-primary">${m.roll}</span>
+        <span class="text-mute" style="font-size:.76rem;">${m.role}</span>
+      </div>
+      <h3 style="margin:12px 0 6px;font-size:1rem;">${m.name}</h3>
+      <p style="margin:0;font-size:.87rem;line-height:1.55;">${m.contribution}</p>
+    </div>`).join('');
+}
+</script></body></html>
