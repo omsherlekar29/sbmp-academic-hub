@@ -6,7 +6,7 @@ export function initPlanner(){
  renderForm();renderFilters();renderList();
 }
 export function initSubjectPlanner(code){
- const r=document.getElementById('subject-planner');if(!r)return;
+ const r=document.getElementById('subject-planner-form')||document.getElementById('subject-task-list')||document.getElementById('subject-planner');if(!r)return;
  renderSubjectForm(code);renderSubjectList(code);
 }
 function load(){try{return JSON.parse(localStorage.getItem(KEY))||[];}catch{return [];}}
